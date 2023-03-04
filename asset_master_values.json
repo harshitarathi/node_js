@@ -1,0 +1,7 @@
+[
+    {"name":"gfjh","description":"test"},
+    {"name":"second","description":"test","numeric":false},
+    {"name":"shanu","email":"hars@rath@gmail.com","password":"false","passwordConfirm":"false"},
+    {"name":"shanu","email":"hars@rath@gmail.com","password":"false","passwordConfirm":"false"},
+    {"name":"shanu","email":"harsrath@gmail.com","password":"harsha123","confirmPassword":"harsha123"}
+]

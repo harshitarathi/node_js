@@ -1,0 +1,22 @@
+header.row.text-center.mt-3
+    .col-sm-3.mb-3
+        img(src=' ' alt='NMDC')
+    .col-sm-9.mb-3
+        h1 Asset Allocation Portal  - Master Page
+    .navbar.navbar-expand-sm.bg-dark.navbar
+        ul.navbar-nav
+            if user 
+                a.nav__el.nav__el--logout  log out
+                li.nav-item
+                    button.btn.btn-primary(data-bs-toggle='offcanvas' data-bs-target='#about') About
+                    span = user.name
+            else
+                li.nav-link
+                    a(href='/login') login
+                li.nav-link
+                    a(href='#') Registration
+                li.nav-item.input-group.pull-right
+            label(for='form')
+            input.form-control(type='search' placeholder='Search')
+            button.btn.btn-primary search
+    

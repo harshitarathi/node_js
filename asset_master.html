@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Asset allocation master page</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    </head>
+    <body class="border d-flex flex-column min-vh-100">
+        <div class="container">
+            <header class="row text-center mt-3">
+                <div class="col-sm-3 mb-3">
+                    <img src="http://www.labgo.in/assets/front/images/logo.png" alt="NMDC">
+                </div>
+                <div class="col-sm-9 mb-3">
+                    <h1>Asset Allocation Portal  - Master Page</h1>
+                </div>
+            </header>
+            <div class="navbar navbar-expand-sm bg-dark navbar">
+                <ul class="navbar-nav ">
+                    <li class="nav-item"><button class="btn btn-primary" data-bs-toggle="offcanvas"
+                            data-bs-target="#about">About</button></li>
+                    <li class="nav-link"><a href="login.html">login</a></li>
+                    <li class="nav-link"><a href="#">Registration</a></li>
+                    <li class="nav-item input-group pull-right">
+                        <label for="form"></label><input type="search" class="form-control" placeholder="Search">
+                        <button class="btn btn-primary">search</button>
+                    </li>
+                </ul>
+            </div>
+    
+        
+        <div class="offcanvas offcanvas-start" id="about">
+            <div class="offcanvas-header">
+                <h1 class="offcanvas-title">About</h1>
+                <button class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+            </div>
+            <div class="offcanvas-body">
+                <p>This is a asset allocation Portal</p>
+    
+            </div>
+    
+        </div>
+        <form action="asset_master_values.json">
+            <fieldset class="border ">
+                <div class="row mt-3">
+                    <div class="col-sm-3 mb-3">
+                        <label for="id" class="form-control-label">ID</label>
+                    </div>
+                    <div class="col-sm-9 mb-3">
+                        <input type="text" placeholder="ID" id="id" class="form-control" readonly>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="name" class="form-control-label">Name</label>
+                    </div>
+                    <div class="col-sm-9 mb-3">
+                        <input type="text" placeholder="Item name" id="name" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="Description" class="form-control-label">Description</label>
+                    </div>
+                    <div class="col-sm-9 mb-3">
+                        <input type="text area" placeholder="Description" id="Description" class="form-control">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="category" class="form-control-label">category</label>
+                    </div>
+                    <div class="col-sm-9 mb-3">
+                        <select name="category" id="category">
+                            <option value="category">Category</option>
+                            <option value="printer">Printer</option>
+                            <option value="desktop/pc">Desktop/PC</option>
+                            <option value="server">Server</option>
+                            <option value="network_device">Network device</option>
+                            <option value="keyboard">Keyboard</option>
+                            <option value="mouse">Mouse</option>
+                            <option value="desktop_assesories">Desktop Assesories</option>
+                            <option value="pen_drive">Pen Drive</option>
+                            <option value="hard_disk">Hard Disk</option>
+                        </select>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="indate" class="form-control-label">In-date</label>
+                    </div>
+                    <div class="col-sm-9 mb-3">
+                        <input type="date" placeholder="Indate" id="indate" class="form-control"  onchange = "validateInDate()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="outdate" class="form-control-label">Out-date</label>
+                    </div>
+                    <div class="col-sm-9 mb-3">
+                        <input type="date" placeholder="Outdate" id="outdate" class="form-control" onchange= "validateOutDate()">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3 mb-3">
+                        <label for="fromdept" class="form-control-label" >From-Department</label>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <select name="fromdept" id="fromdept" onchange="disableDeptSelect()">
+                            <option value="">From Dept</option>
+                            <option value="TSE">T,S&E</option>
+                            <option value="c&it">C&IT</option>
+                            <option value="Civil">Civil</option>
+                            <option value="industrial">Industrial</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <label for="todept" class="form-control-label" >To-Department</label>
+                    </div>
+                    <div class="col-sm-3 mb-3">
+                        <select name="todept" id="todept">
+                            <option value="">To Dept</option>
+                            <option value="TSE">T,S&E</option>
+                            <option value="c&it">C&IT</option>
+                            <option value="Civil">Civil</option>
+                            <option value="industrial">Industrial</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+    
+                    <div class="col-12 col-sm-6 mb-3">
+                        <button class="btn btn-primary form-control" >Submit</button>
+                    </div>
+                    <div class="col-12 col-sm-6 mb-3">
+                        <button class="btn btn-primary form-control" type="reset">Reset</button>
+                    </div>
+                </div>
+            </fieldset>
+        </form> 
+    </div>
+        <footer class=" container mt-auto">
+            <div class="footer-newsletter text-center p-3">
+                &copy 2022
+            </div>
+        </footer> 
+       <script src="asset_master.js"></script> 
+    </body>
+</html>

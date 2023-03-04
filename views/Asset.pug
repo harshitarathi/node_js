@@ -1,0 +1,101 @@
+doctype html
+head
+  title Asset allocation master page
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  link(href='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css' rel='stylesheet')
+  script(src='https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js')
+.container
+  header.row.text-center.mt-3
+    .col-sm-3.mb-3
+      img(src='http://www.labgo.in/assets/front/images/logo.png' alt='NMDC')
+    .col-sm-9.mb-3
+      h1 Asset Allocation Portal  - Master Page
+  .navbar.navbar-expand-sm.bg-dark.navbar
+    ul.navbar-nav
+      li.nav-item
+        button.btn.btn-primary(data-bs-toggle='offcanvas' data-bs-target='#about') About
+      li.nav-link
+        a(href='login.html') login
+      li.nav-link
+        a(href='#') Registration
+      li.nav-item.input-group.pull-right
+        label(for='form')
+        input.form-control(type='search' placeholder='Search')
+        button.btn.btn-primary search
+  #about.offcanvas.offcanvas-start
+    .offcanvas-header
+      h1.offcanvas-title About
+      button.btn-close.text-reset(data-bs-dismiss='offcanvas')
+    .offcanvas-body
+      p This is a asset allocation Portal
+  form(action='asset_master_values.json')
+    fieldset.border
+      .row.mt-3
+        .col-sm-3.mb-3
+          label.form-control-label(for='id') ID
+        .col-sm-9.mb-3
+          input#id.form-control(type='text' placeholder='ID' readonly='')
+      .row
+        .col-sm-3.mb-3
+          label.form-control-label(for='name') Name
+        .col-sm-9.mb-3
+          input#name.form-control(type='text' placeholder='Item name')
+      .row
+        .col-sm-3.mb-3
+          label.form-control-label(for='Description') Description
+        .col-sm-9.mb-3
+          input#Description.form-control(type='text area', placeholder='Description')
+      .row
+        .col-sm-3.mb-3
+          label.form-control-label(for='category') category
+        .col-sm-9.mb-3
+          select#category(name='category')
+            option(value='category') Category
+            option(value='printer') Printer
+            option(value='desktop/pc') Desktop/PC
+            option(value='server') Server
+            option(value='network_device') Network device
+            option(value='keyboard') Keyboard
+            option(value='mouse') Mouse
+            option(value='desktop_assesories') Desktop Assesories
+            option(value='pen_drive') Pen Drive
+            option(value='hard_disk') Hard Disk
+      .row
+        .col-sm-3.mb-3
+          label.form-control-label(for='indate') In-date
+        .col-sm-9.mb-3
+          input#indate.form-control(type='date', placeholder='Indate', onchange='validateInDate()')
+      .row
+        .col-sm-3.mb-3
+          label.form-control-label(for='outdate') Out-date
+        .col-sm-9.mb-3
+          input#outdate.form-control(type='date', placeholder='Outdate' , onchange='validateOutDate()')
+      .row
+        .col-sm-3.mb-3
+          label.form-control-label(for='fromdept') From-Department
+        .col-sm-3.mb-3
+          select#fromdept(name='fromdept', onchange='disableDeptSelect()')
+            option(value='') From Dept
+            option(value='TSE') T,SE
+            option(value='cit') CIT
+            option(value='Civil') Civil
+            option(value='industrial') Industrial
+        .col-sm-3.mb-3
+          label.form-control-label(for='todept') To-Department
+        .col-sm-3.mb-3
+          select#todept(name='todept')
+            option(value='') To Dept
+            option(value='TSE') T,SE
+            option(value='cit') CIT
+            option(value='Civil') Civil
+            option(value='industrial') Industrial
+      .row
+        .col-12.col-sm-6.mb-3
+          button.btn.btn-primary.form-control Submit
+        .col-12.col-sm-6.mb-3
+          button.btn.btn-primary.form-control(type='reset') Reset
+footer.container.mt-auto
+  .footer-newsletter.text-center.p-3
+    | &amp;copy 2022
+
+script(src='/js/asset.js')
